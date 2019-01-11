@@ -49,7 +49,7 @@ float getTemperature()
 
 	float temperature = tempSensor.getTempCByIndex(0);  // The index must be changed if there are more than one sensor on the same wire/input pin.
 
-  // Tell the sensor to make a temperature conversion. This may happen a bit later.
+	// Tell the sensor to make a temperature conversion. This may happen a bit later.
 	tempSensor.requestTemperatures();
 
   return temperature;
