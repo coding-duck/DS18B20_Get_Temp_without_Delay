@@ -10,7 +10,7 @@ OneWire oneWireObject(TEMPERATURE_SENSOR_PIN);          // Create OneWire object
 DallasTemperature tempSensor(&oneWireObject);           // Declare temperature sensor
 DeviceAddress addressTempSensor;                        // Sensor address is ascertained in findAndSetupTempSensor()
 
-int lastRequestTime = 0;
+unsigned long lastRequestTime = 0;
 
 // Ueberpruefe ob Sensoren vorhanden sind
 void findAndSetupTempSensor()
@@ -55,7 +55,7 @@ float getTemperature()
   return temperature;
 }
 
-void setup(void) {
+void setup() {
 	if (DEBUG_MODE_IS_ACTIVE)
 	{
     Serial.begin(9600);
@@ -64,7 +64,7 @@ void setup(void) {
 	lastRequestTime = millis();
 }
 
-void loop(void) {
+void loop() {
 	// Check if enough time has passed since last temperature request
 	if (millis() >= (lastRequestTime + MEASUREMENT_DELAY_MS))
 	{
